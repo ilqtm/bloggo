@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="uninterpretable symbol combinations, apparent function errors, and a permission slipThe attempt and then (partial) success to deploy to aws s3 and github simultaneously from aws cloud 9 is coming toge">
+    <meta name="description" content="Uninterpretable symbol combinations, apparent function errors, and a permission slipThe attempt and then (partial) success to deploy to aws s3 and github simultaneously from aws cloud 9 is coming toge">
 <meta property="og:type" content="article">
 <meta property="og:title" content="awsc9-to-github">
 <meta property="og:url" content="http://ilqtm.net/2018/02/13/awsc9-to-github/index.html">
 <meta property="og:site_name" content="ilqtm">
-<meta property="og:description" content="uninterpretable symbol combinations, apparent function errors, and a permission slipThe attempt and then (partial) success to deploy to aws s3 and github simultaneously from aws cloud 9 is coming toge">
-<meta property="og:updated_time" content="2018-02-13T06:08:42.754Z">
+<meta property="og:description" content="Uninterpretable symbol combinations, apparent function errors, and a permission slipThe attempt and then (partial) success to deploy to aws s3 and github simultaneously from aws cloud 9 is coming toge">
+<meta property="og:updated_time" content="2018-02-13T17:42:52.012Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="awsc9-to-github">
-<meta name="twitter:description" content="uninterpretable symbol combinations, apparent function errors, and a permission slipThe attempt and then (partial) success to deploy to aws s3 and github simultaneously from aws cloud 9 is coming toge">
+<meta name="twitter:description" content="Uninterpretable symbol combinations, apparent function errors, and a permission slipThe attempt and then (partial) success to deploy to aws s3 and github simultaneously from aws cloud 9 is coming toge">
     
     
         
@@ -67,6 +67,8 @@
     <span id="actions">
       <ul>
         
+        <li><a class="icon" href="/2018/02/13/permission-slips-and-validation-errors/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
         
         <li><a class="icon" href="/2018/02/13/github-and-gitdeploy/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
         
@@ -95,7 +97,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#uninterpretable-symbol-combinations-apparent-function-errors-and-a-permission-slip"><span class="toc-number">1.</span> <span class="toc-text">uninterpretable symbol combinations, apparent function errors, and a permission slip</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Uninterpretable-symbol-combinations-apparent-function-errors-and-a-permission-slip"><span class="toc-number">1.</span> <span class="toc-text">Uninterpretable symbol combinations, apparent function errors, and a permission slip</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -129,14 +131,10 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h2 id="uninterpretable-symbol-combinations-apparent-function-errors-and-a-permission-slip"><a href="#uninterpretable-symbol-combinations-apparent-function-errors-and-a-permission-slip" class="headerlink" title="uninterpretable symbol combinations, apparent function errors, and a permission slip"></a>uninterpretable symbol combinations, apparent function errors, and a permission slip</h2><p>The attempt and then (partial) success to deploy to aws s3 and github simultaneously from aws cloud 9 is coming together. At this point I can get either to work, but not yet both w/ one deploy.<br>I’ll do the old comment switcheroo for now and just deploy separately.</p>
-<p>My first issue was a noob mistake w/ some symbols that didn’t make sense in YAML and then Hexo:</p>
-<blockquote>
-<p>‘ “” ‘</p>
-</blockquote>
-<p>An extra doublequote was understandably missed w/o my glasses on.<br>The error showed as:</p>
+    <h1 id="Uninterpretable-symbol-combinations-apparent-function-errors-and-a-permission-slip"><a href="#Uninterpretable-symbol-combinations-apparent-function-errors-and-a-permission-slip" class="headerlink" title="Uninterpretable symbol combinations, apparent function errors, and a permission slip"></a>Uninterpretable symbol combinations, apparent function errors, and a permission slip</h1><p>The attempt and then (partial) success to deploy to aws s3 and github simultaneously from aws cloud 9 is coming together. At this point I can get either to work, but not yet both w/ one deploy.<br>I’ll do the old comment switcheroo for now and just deploy separately.</p>
+<p>My first issue an extra doublequote that was understandably missed w/o my glasses on.<br>The error showed as:</p>
 <p>Template render error: (unknown path)</p>
-<p>Second was a whitespace issue that caused a duplicate key error. YAML needs specific whitespace indentation and dashes for lists that contain multiple instances of the same key.</p>
+<p>Second was a whitespace (WS) issue that caused a duplicate key error. YAML needs specific whitespace indentation and dashes for lists that contain multiple instances of the same key.</p>
 <p>incorect:</p>
 <blockquote>
 <p>deploy:<br>type: s3<br>type: git</p>
@@ -151,14 +149,9 @@
 </blockquote>
 <p>correct:</p>
 <blockquote>
-<p>deploy:</p>
-<ul>
-<li>type: s3</li>
-<li>type: git</li>
-</ul>
+<p>deploy:<br>WS- type: s3<br>WS- type: git</p>
 </blockquote>
-<p>Third was a function apparently called ‘now’ that was deriving from a JSON expression in the deploy section of _config.yml.</p>
-<p>I had it in there to post the time and date of the commit, but I removed it for now to achieve the larger goal.</p>
+<p>Third was a function apparently called ‘now’ that was deriving from a JSON expression I put into the deploy section of _config.yml. It’s the default value for the key, so there wasn’t much point including it.</p>
 <p>Last, so far, was a permissions issue. I didn’t set up the public key! There is a public key already on the ec2 that hosts the cloud 9 IDE, but it didn’t work, so I made a new one, applied it to the github account, corrected my repo URL, and boom bam.</p>
 <p>I also learned to shutdown my cloud9 ec2 with this:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ aws ec2 stop-instances --instance-ids i-XXXXXXXX --output text | grep -w CURRENTSTATE | awk <span class="string">'&#123;print $3&#125;'</span></span><br></pre></td></tr></table></figure>
@@ -195,7 +188,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#uninterpretable-symbol-combinations-apparent-function-errors-and-a-permission-slip"><span class="toc-number">1.</span> <span class="toc-text">uninterpretable symbol combinations, apparent function errors, and a permission slip</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Uninterpretable-symbol-combinations-apparent-function-errors-and-a-permission-slip"><span class="toc-number">1.</span> <span class="toc-text">Uninterpretable symbol combinations, apparent function errors, and a permission slip</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
