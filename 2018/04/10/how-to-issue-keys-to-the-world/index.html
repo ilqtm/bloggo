@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="ilqtm">
 <meta property="og:description" content="whoopsLast night while (needlessly) trying to use git to post hexo updates to track commits, I managed to post my aws keys.I realized immediately and disabled them in the AWS Console, issued new ones,">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-10T21:13:26.055Z">
+<meta property="og:updated_time" content="2018-05-31T23:24:53.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="how-to-issue-keys-to-the-world">
 <meta name="twitter:description" content="whoopsLast night while (needlessly) trying to use git to post hexo updates to track commits, I managed to post my aws keys.I realized immediately and disabled them in the AWS Console, issued new ones,">
@@ -65,6 +65,8 @@
     <br/>
     <span id="actions">
       <ul>
+        
+        <li><a class="icon" href="/2018/05/31/so-much-for-promise-posts/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
         
         
         <li><a class="icon" href="/2018/04/06/cooking-with-javascript/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
@@ -128,7 +130,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h1 id="whoops"><a href="#whoops" class="headerlink" title="whoops"></a>whoops</h1><p>Last night while (needlessly) trying to use git to post hexo updates to track commits, I managed to post my aws keys.<br>I realized immediately and disabled them in the AWS Console, issued new ones, reset my _config.yml, definitely was sure I set things up again correctly…</p>
+    <h1 id="whoops"><a href="#whoops" class="headerlink" title="whoops"></a>whoops</h1><p>Last night while (needlessly) trying to use git to post hexo updates to track commits, I managed to post my aws keys.<br>I realized immediately and disabled them in the AWS Console, issued new ones, reset my _config.yml, definitely was sure I set things up correctly…</p>
 <h2 id="And-did-it-again"><a href="#And-did-it-again" class="headerlink" title="And did it again."></a>And did it again.</h2><p>It’s an easy mistake to make, I’m glad I made it in a low stakes environment, but it’s easy to avoid too. In the aftermath I set up newer keys (deleted the old sets), applied them to the necessary files, and realized that hexo now shows commits to my github correclty.<br>Right now I have it deploying changes to github (w/ <a href="https://github.com/nt3rp/hexo-deployer-s3" target="_blank" rel="noopener">hexo-deployer-s3</a>), but all the actual hosting and dns is through AWS. s3 to host and Route 53 to serve.</p>
 <p>This kind of thing can be avoided by just leaving them out w/ the first commit to set up the repo and then adding wherever they end up into your .gitignore. I’m just going to avoid it for now until I know more.</p>
 <p>My goal yesterday was to get a CloudFront distribution going to see what the set up is like. I got the distribution set up, that’s easy (it’s a wizard, Harry!), I just keep getting 403’d. I’ll spend some time on it tonight to see if it’ll go, tomorrow if it doesn’t.</p>
@@ -139,7 +141,7 @@
 </ul>
 <h2 id="my-very-own-inanimate-c3p0"><a href="#my-very-own-inanimate-c3p0" class="headerlink" title="my very own inanimate c3p0"></a>my very own inanimate c3p0</h2><p>I’m ordering a raspbery pi 3 + extras to make an echo. Amazon finally let the music source be variable and I’m a sucker for Spotify. I’m also interested in using Lex and Lambda for learning projects, so it’ll be a nice intro. New toothbrush heads are on the way as well, but that’s less interesting.</p>
 <h2 id="ethical-scripting"><a href="#ethical-scripting" class="headerlink" title="ethical scripting"></a>ethical scripting</h2><p>I don’t like paywalls. Duh, nobody outside of one wanting what’s inside does. I’m not stepping out on a limb here.</p>
-<p>I’m actively considering the ethics of breaking them in order to learn about security and web developement in practice. Obviously, this also gets me the content I’m interested in w/o paying/membership, but oddly is something I discovered my mistake.<br>While writing loops for some of my favorite recipe sites to avoid the often long winded blog posts (imo), I applied the script out of habit to a site that loaded an “n articles allowed for non-members, login/pay to see content”.</p>
+<p>I’m actively considering the ethics of breaking them in order to learn about security and web developement in practice. Obviously, this also gets me the content I’m interested in w/o paying/membership, but oddly is something I discovered by mistake.<br>While writing loops for some of my favorite recipe sites to avoid the often long winded blog posts (imo), I applied the script out of habit to a site that loaded an “n articles allowed for non-members, login/pay to see content”.</p>
 <p>A new tab opened w/ the desired plaintext recipe and method, regardless of the paywall popup.</p>
 <p>Hmm. I’m not the first one to realize or do this, I’m sure. I know this is borderline script kiddie territory, but it got me curious, so I’m trying it with other sites I enjoy and it works w/ a little tinkering.<br>Should the authors/devs be told? Would they care? Do they already know? Is it inevitable for vulerabilities like this to be exploited?</p>
 <p>It just doesn’t take much, I guess.</p>
